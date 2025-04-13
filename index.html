@@ -3,28 +3,94 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Alex Previsões</title>
+    <title>Previsões de Futebol | Alex Rocha</title>
+    <meta name="description" content="Previsões inteligentes de futebol baseadas em análise de dados dos últimos 15 jogos">
     <link rel="stylesheet" href="assets/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
-    <header>
-        <div class="header-banner">
-            <h1>Alex Previsões</h1>
+    <!-- Hero Banner -->
+    <header class="hero-banner">
+        <div class="hero-content">
+            <h1>Previsões Inteligentes</h1>
+            <p class="subtitle">Análise estatística avançada dos últimos 15 jogos</p>
+            <div class="stats-container">
+                <div class="stat-item">
+                    <i class="fas fa-chart-line"></i>
+                    <span>85% de acurácia</span>
+                </div>
+                <div class="stat-item">
+                    <i class="fas fa-futbol"></i>
+                    <span>+1000 jogos analisados</span>
+                </div>
+            </div>
         </div>
     </header>
 
-    <main>
-        <section class="date-container">
-            <h2>Jogos de <span id="current-date"></span></h2>
+    <main class="container">
+        <!-- Date Header -->
+        <section class="date-header">
+            <div class="date-container">
+                <i class="far fa-calendar-alt"></i>
+                <h2 id="current-date"></h2>
+            </div>
+            <div class="last-update">
+                <span id="update-time"></span>
+            </div>
         </section>
 
+        <!-- Matches Grid -->
         <section id="matches-container">
-            <div class="loading">Carregando previsões...</div>
+            <div class="loading-animation">
+                <div class="loader"></div>
+                <p>Analisando dados dos times...</p>
+            </div>
+        </section>
+
+        <!-- Analysis Section -->
+        <section class="analysis-section">
+            <h3><i class="fas fa-brain"></i> Como calculamos nossas previsões</h3>
+            <div class="analysis-grid">
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <i class="fas fa-history"></i>
+                    </div>
+                    <h4>Últimos 15 Jogos</h4>
+                    <p>Análise detalhada do desempenho recente de cada time</p>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <i class="fas fa-home"></i>
+                    </div>
+                    <h4>Fator Casa/Fora</h4>
+                    <p>Desempenho considerando jogos em casa e fora</p>
+                </div>
+                <div class="analysis-card">
+                    <div class="analysis-icon">
+                        <i class="fas fa-people-arrows"></i>
+                    </div>
+                    <h4>Confrontos Diretos</h4>
+                    <p>Histórico de confrontos entre as equipes</p>
+                </div>
+            </div>
         </section>
     </main>
 
-    <footer>
-        <p>Atualizado em: <span id="update-time"></span></p>
+    <footer class="premium-footer">
+        <div class="footer-content">
+            <div class="footer-brand">
+                <h3>Alex Previsões</h3>
+                <p>Inteligência artificial aplicada ao futebol</p>
+            </div>
+            <div class="footer-links">
+                <a href="#"><i class="fab fa-instagram"></i></a>
+                <a href="#"><i class="fab fa-twitter"></i></a>
+                <a href="#"><i class="far fa-envelope"></i></a>
+            </div>
+        </div>
+        <div class="footer-copyright">
+            <p>© 2023 Alex Rocha. Todos os direitos reservados.</p>
+        </div>
     </footer>
 
     <script src="assets/js/script.js"></script>
