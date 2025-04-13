@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "2023-11-20T12:00:00Z",
+    "lastUpdated": "2023-11-28T14:30:00Z",
     "matches": [
         {
             "homeTeam": {
@@ -11,10 +11,26 @@
                 "logo": "https://media.api-sports.io/football/teams/603.png"
             },
             "predictions": {
-                "goalsProbability": "Alta (75%)",
-                "winner": "Flamengo (60%)",
-                "corners": "8-10",
-                "summary": "O Flamengo vem de uma boa sequência de 4 vitórias nos últimos 5 jogos."
+                "goalsProbability": "Alta (78%)",
+                "winner": "Flamengo (65%)",
+                "corners": "7-9",
+                "summary": "Baseado nos últimos 15 jogos: Flamengo com 72% de aproveitamento em casa contra 58% do Palmeiras fora."
+            }
+        },
+        {
+            "homeTeam": {
+                "name": "Corinthians",
+                "logo": "https://media.api-sports.io/football/teams/599.png"
+            },
+            "awayTeam": {
+                "name": "São Paulo",
+                "logo": "https://media.api-sports.io/football/teams/598.png"
+            },
+            "predictions": {
+                "goalsProbability": "Média (55%)",
+                "winner": "Empate (45%)",
+                "corners": "5-7",
+                "summary": "Clássico equilibrado com ambas as equipes em forma similar nos últimos 5 jogos."
             }
         }
     ]
