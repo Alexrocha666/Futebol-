@@ -1,5 +1,5 @@
 {
-    "lastUpdated": "2023-11-28T14:30:00Z",
+    "lastUpdated": "2023-11-28T14:45:00Z",
     "matches": [
         {
             "homeTeam": {
@@ -14,7 +14,7 @@
                 "goalsProbability": "Alta (78%)",
                 "winner": "Flamengo (65%)",
                 "corners": "7-9",
-                "summary": "Baseado nos últimos 15 jogos: Flamengo com 72% de aproveitamento em casa contra 58% do Palmeiras fora."
+                "summary": "Nosso modelo identificou que o Flamengo tem vantagem significativa em jogos em casa, com 72% de aproveitamento nos últimos 15 jogos. O Palmeiras apresenta desempenho 15% abaixo da média quando joga fora. A probabilidade de mais de 2.5 gols no jogo é de 78%, com expectativa de domínio do Flamengo no segundo tempo."
             }
         },
         {
@@ -30,7 +30,23 @@
                 "goalsProbability": "Média (55%)",
                 "winner": "Empate (45%)",
                 "corners": "5-7",
-                "summary": "Clássico equilibrado com ambas as equipes em forma similar nos últimos 5 jogos."
+                "summary": "Clássico equilibrado com ambas as equipes apresentando forma similar nos últimos 5 jogos. O Corinthians mostra defesa sólida (apenas 0.8 gols sofridos por jogo em casa), enquanto o São Paulo tem ataque eficiente (1.4 gols por jogo fora). Nossa IA prevê um jogo tático com probabilidade elevada de empate."
+            }
+        },
+        {
+            "homeTeam": {
+                "name": "Atlético Mineiro",
+                "logo": "https://media.api-sports.io/football/teams/596.png"
+            },
+            "awayTeam": {
+                "name": "Internacional",
+                "logo": "https://media.api-sports.io/football/teams/597.png"
+            },
+            "predictions": {
+                "goalsProbability": "Baixa (42%)",
+                "winner": "Atlético Mineiro (52%)",
+                "corners": "4-6",
+                "summary": "Encontro entre duas equipes defensivamente organizadas. O Atlético Mineiro tem 60% de aproveitamento em casa contra times do topo da tabela, enquanto o Internacional vem de 3 vitórias consecutivas. A baixa probabilidade de gols reflete o estilo cauteloso de ambos os técnicos."
             }
         }
     ]
