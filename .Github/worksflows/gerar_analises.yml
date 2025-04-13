@@ -1,0 +1,32 @@
+name: Gerar Previsões Diárias
+
+on:
+  schedule:
+    - cron: '0 6 * * *'  # roda todo dia às 6h UTC
+  workflow_dispatch:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Clonar repositório
+        uses: actions/checkout@v3
+
+      - name: Configurar Python
+        uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+
+      - name: Instalar dependências
+        run: pip install pandas
+
+      - name: Rodar script de análise
+        run: python analisar_partidas.py
+
+      - name: Commit e push dos resultados
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add data/analises.csv
+          git commit -m "Atualização automática das análises"
+          git push
