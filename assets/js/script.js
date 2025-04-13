@@ -28,7 +28,7 @@ async function loadPredictions() {
         `;
         
         // Carrega dados (use o caminho absoluto para GitHub Pages)
-        const response = await fetch('data/predictions.json');
+        const response = await fetch('Futebol-/data/predictions.json');
         
         if (!response.ok) {
             throw new Error(`Erro na rede: ${response.statusText}`);
