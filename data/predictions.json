@@ -1,0 +1,21 @@
+{
+    "lastUpdated": "2023-11-20T12:00:00Z",
+    "matches": [
+        {
+            "homeTeam": {
+                "name": "Flamengo",
+                "logo": "https://media.api-sports.io/football/teams/598.png"
+            },
+            "awayTeam": {
+                "name": "Palmeiras",
+                "logo": "https://media.api-sports.io/football/teams/603.png"
+            },
+            "predictions": {
+                "goalsProbability": "Alta (75%)",
+                "winner": "Flamengo (60%)",
+                "corners": "8-10",
+                "summary": "O Flamengo vem de uma boa sequência de 4 vitórias nos últimos 5 jogos."
+            }
+        }
+    ]
+}
