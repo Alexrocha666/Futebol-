@@ -1,15 +1,8 @@
 document.addEventListener('DOMContentLoaded', () => {
     // Formata data atual
-    const dateOptions = { 
-        weekday: 'long', 
-        year: 'numeric', 
-        month: 'long', 
-        day: 'numeric' 
-    };
-    document.getElementById('current-date').textContent = 
-        new Date().toLocaleDateString('pt-BR', dateOptions);
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    document.getElementById('current-date').textContent = new Date().toLocaleDateString('pt-BR', options);
     
-    // Carrega dados
     loadPredictions();
 });
 
@@ -17,38 +10,31 @@ async function loadPredictions() {
     const container = document.getElementById('matches-container');
     
     try {
-        // Caminho absoluto para GitHub Pages
-        const response = await fetch('/Futebol-/data/predictions.json');
+        // 1. Tenta carregar dados do JSON
+        const response = await fetch('data/predictions.json');
         
-        if (!response.ok) {
-            throw new Error(`Erro HTTP ${response.status}`);
-        }
+        if (!response.ok) throw new Error(`Erro HTTP: ${response.status}`);
         
         const data = await response.json();
         
-        // Valida dados
-        if (!data || !data.matches || !Array.isArray(data.matches)) {
-            throw new Error('Dados inválidos no arquivo JSON');
-        }
+        // 2. Valida dados
+        if (!data?.matches?.length) throw new Error('Nenhum jogo encontrado');
         
-        // Atualiza horário
+        // 3. Atualiza UI
         document.getElementById('update-time').textContent = 
             new Date(data.lastUpdated).toLocaleString('pt-BR');
         
-        // Exibe jogos
         displayMatches(data.matches);
         
     } catch (error) {
-        console.error("Erro detalhado:", error);
+        console.error("Erro:", error);
         showError(`
-            <div class="error-icon">
+            <div class="error">
                 <i class="fas fa-exclamation-triangle"></i>
+                <h3>Erro na análise</h3>
+                <p>${error.message}</p>
+                <button onclick="location.reload()">Recarregar</button>
             </div>
-            <h3>Sistema temporariamente indisponível</h3>
-            <p>${error.message}</p>
-            <button onclick="window.location.reload()" class="retry-btn">
-                <i class="fas fa-sync-alt"></i> Tentar novamente
-            </button>
         `);
     }
 }
@@ -56,24 +42,13 @@ async function loadPredictions() {
 function displayMatches(matches) {
     const container = document.getElementById('matches-container');
     
-    if (!matches || matches.length === 0) {
-        container.innerHTML = `
-            <div class="empty-state">
-                <i class="far fa-futbol"></i>
-                <h3>Nenhum jogo hoje</h3>
-                <p>Volte amanhã para novas previsões</p>
-            </div>
-        `;
-        return;
-    }
-    
     container.innerHTML = matches.map(match => `
         <div class="match-card">
-            <div class="team-container">
+            <div class="teams">
                 <div class="team">
                     <img src="assets/images/${match.homeTeam.name.toLowerCase()}.png" 
                          alt="${match.homeTeam.name}"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=${match.homeTeam.name.substring(0,2)}'">
+                         onerror="this.src='https://via.placeholder.com/80?text=${match.homeTeam.name.substring(0,2)}'">
                     <h3>${match.homeTeam.name}</h3>
                 </div>
                 
@@ -82,27 +57,27 @@ function displayMatches(matches) {
                 <div class="team">
                     <img src="assets/images/${match.awayTeam.name.toLowerCase()}.png" 
                          alt="${match.awayTeam.name}"
-                         onerror="this.onerror=null;this.src='https://via.placeholder.com/80?text=${match.awayTeam.name.substring(0,2)}'">
+                         onerror="this.src='https://via.placeholder.com/80?text=${match.awayTeam.name.substring(0,2)}'">
                     <h3>${match.awayTeam.name}</h3>
                 </div>
             </div>
             
-            <div class="predictions-grid">
-                <div class="prediction-card">
+            <div class="predictions">
+                <div class="prediction">
                     <h4>Prob. Gols</h4>
                     <p>${match.predictions.goalsProbability}</p>
                 </div>
-                <div class="prediction-card">
+                <div class="prediction">
                     <h4>Vencedor</h4>
                     <p>${match.predictions.winner}</p>
                 </div>
-                <div class="prediction-card">
+                <div class="prediction">
                     <h4>Escanteios</h4>
                     <p>${match.predictions.corners}</p>
                 </div>
             </div>
             
-            <div class="match-summary">
+            <div class="summary">
                 <p>${match.predictions.summary}</p>
             </div>
         </div>
@@ -111,9 +86,5 @@ function displayMatches(matches) {
 
 function showError(message) {
     const container = document.getElementById('matches-container');
-    container.innerHTML = `
-        <div class="error-state">
-            ${message}
-        </div>
-    `;
+    container.innerHTML = message;
 }
