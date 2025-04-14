@@ -31,7 +31,7 @@ h1, h2, h3 {
 .hero-banner {
     height: 70vh;
     min-height: 500px;
-    background-image: url('../assets/images/header-bg.jpg');
+    background-image: url('../assets/images/alex.jpg');
     background-size: cover;
     background-position: center;
     position: relative;
